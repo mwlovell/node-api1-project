@@ -3,7 +3,7 @@ const User = require('./users/model')
 const server = express()
 
 
-server.get('./api/users', (req, res) => {
+server.get(`/api/users`, (req, res) => {
     User.find()
     .then(users =>{
         res.json(users)
@@ -17,7 +17,7 @@ server.get('./api/users', (req, res) => {
     })
 } )
 
-server.get('./api/users/:id', (req, res) => {
+server.get(`/api/users/:id`, (req, res) => {
     User.findById(req.params.find)
     .then(user => {
        if (!user) {
